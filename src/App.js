@@ -5,7 +5,7 @@ import Store from './store/store';
 //* Pages
 import Homepage from './pages/Homepage';
 import Userpage from './pages/Userpage';
-
+import SinglePhotopage from './pages/SinglePhotopage';
 //* Components
 import Navigation from './components/Navigation';
 
@@ -19,7 +19,8 @@ class App extends Component {
             <div className="container-fluid">
               <Switch>
                 <Route exact path="/" component={Homepage} />
-                <Route exact path="/user/:name" component={Userpage} />
+                <Route exact path="/user/:username" component={Userpage} />
+                <Route exact path="/photo/:id" component={SinglePhotopage} />
               </Switch>
             </div>
           </div>

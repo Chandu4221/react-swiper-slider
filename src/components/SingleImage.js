@@ -3,27 +3,32 @@ import { Link } from 'react-router-dom';
 
 const SingleImage = props => {
   return (
-    <>
-      <img
-        src={props.photoData.urls.small}
-        className="card-img-top"
-        alt={props.photoData.alt_description}
-      />
+    <div>
+      <Link to={`photo/${props.photoData.id}`}>
+        <img
+          src={props.photoData.urls.small}
+          className="card-img-top"
+          alt={props.photoData.alt_description}
+        />
+      </Link>
       <div className="card-body">
-        <div className="media">
+        <div className="d-flex align-items-center">
           <img
             src={props.photoData.user.profile_image.small}
             alt={props.photoData.user.name}
-            className="mr-3 rounded"
+            className="rounded"
           />
-          <div className="media-body">
-            <Link to={`users/${props.photoData.user.username}`}>
-              <h5 className="mt-0">{props.photoData.user.name}</h5>
+          <div>
+            <Link
+              to={`user/${props.photoData.user.username}`}
+              className="nav-link"
+            >
+              <h5 className="mt-0 small">{props.photoData.user.name}</h5>
             </Link>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

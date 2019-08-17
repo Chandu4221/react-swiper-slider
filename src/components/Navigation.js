@@ -5,12 +5,14 @@ import { NavLink } from 'react-router-dom';
 import unsplash from '../api/Unsplash.api';
 class Navigation extends Component {
   componentDidMount() {
-    unsplash.photos
-      .listPhotos(2, 15, 'latest')
-      .then(toJson)
-      .then(json => {
-        this.props.loadInitialData(json);
-      });
+    if (this.props.allPhotos.length === 0)
+      unsplash.photos
+        .listPhotos(2, 15, 'latest')
+        .then(toJson)
+        .then(json => {
+          console.log(json);
+          this.props.loadInitialData(json);
+        });
   }
   render() {
     return (
@@ -34,12 +36,7 @@ class Navigation extends Component {
           <ul className="navbar-nav mr-auto">
             <li className="nav-item active">
               <NavLink className="nav-link" to="/" exact>
-                Home
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/user" exact>
-                Link
+                Latest
               </NavLink>
             </li>
           </ul>

@@ -1,0 +1,8 @@
+.loading {
+  position: relative;
+  text-align: center;
+}
+.loading > img {
+  height: 50px;
+  width: 50px;
+}
